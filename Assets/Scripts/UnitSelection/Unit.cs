@@ -8,6 +8,7 @@ public class Unit : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        /*
 		if (GetComponent<Renderer>().isVisible && Input.GetMouseButtonUp(0))
         {
             Vector3 camPos = Camera.main.WorldToScreenPoint(transform.position);
@@ -19,5 +20,6 @@ public class Unit : MonoBehaviour {
             GetComponent<Renderer>().material.color = Color.red;
         else
             GetComponent<Renderer>().material.color = Color.white;
+        */
 	}
 }
