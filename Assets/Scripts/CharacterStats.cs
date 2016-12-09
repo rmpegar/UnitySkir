@@ -9,7 +9,7 @@ public class CharacterStats : MonoBehaviour {
     {
         stats.Add(new BaseStat(4, "Power", "Your power level."));
         stats.Add(new BaseStat(2, "Health", "Your character's health."));
-        Debug.Log(stats[0].GetCalculatedStatValue());
+        //Debug.Log(stats[0].GetCalculatedStatValue());
         //Debug.Log(stats[1].GetCalculatedStatValue());
         //Debug.Log(stats[2].GetCalculatedStatValue());
     }
