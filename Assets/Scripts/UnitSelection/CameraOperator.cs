@@ -49,6 +49,7 @@ public class CameraOperator : MonoBehaviour
         if (startClick != -Vector3.one)
         {
             GUI.color = new Color(1, 1, 1, 0.5f); // R,G,B, Transparency 0-1
+            GUI.DrawTexture(selection, selectionHighlight);
         }
     }
 
