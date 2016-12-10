@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.AI;
 using System.Collections;
 
@@ -10,7 +11,7 @@ public class WorldInteraction : MonoBehaviour {
 	}
 
 	void Update(){
-		if(Input.GetMouseButtonDown(1) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+		if(Input.GetMouseButtonDown(1) && !EventSystem.current.IsPointerOverGameObject())
 			GetInteraction();
 	}
 
