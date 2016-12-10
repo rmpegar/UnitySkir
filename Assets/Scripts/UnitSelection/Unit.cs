@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Unit : MonoBehaviour {
-
+    public bool selectable = true;
     public bool selected = false;
 	
 	// Update is called once per frame

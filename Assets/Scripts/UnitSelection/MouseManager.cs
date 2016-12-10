@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MouseManager : MonoBehaviour {
+    public GameObject hoveredObject;
     public GameObject selectedObject;
     // Use this for initialization
     void Start () {
 		
 	}
-	/*
+	
 	// Update is called once per frame
 	void Update () {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -18,47 +19,50 @@ public class MouseManager : MonoBehaviour {
         if (Physics.Raycast(ray, out hitInfo))
         {
             GameObject hitObject = hitInfo.transform.root.gameObject;
-
-            SelectObject(hitObject);
+            if (hitObject.tag == "Interactable Object")
+                SelectObject(hitObject);
+                
+            else
+                ClearSelection();
         }
         else
         {
             ClearSelection();
         }
+        
+            selectedObject = hoveredObject;
 	}
 
     public void SelectObject(GameObject obj)
     {
-        if (selectedObject != null)
+        if (hoveredObject != null)
         {
-            if (obj == selectedObject)
+            if (obj == hoveredObject)
                 return;
         }
-        
-
-        selectedObject = obj;
+        hoveredObject = obj;
         //Grab all renderers components in a unit
-        Renderer[] rs = selectedObject.GetComponentsInChildren<Renderer>();
-        foreach (Renderer ren in rs)
+        Renderer[] rs = hoveredObject.GetComponentsInChildren<Renderer>();
+        foreach (Renderer renderedObject in rs)
         {
-            Material m = ren.material;
+            Material m = renderedObject.material;
             m.color = Color.green;
-            ren.material = m;
+            renderedObject.material = m;
         }
     }
 
     public void ClearSelection()
     {
-        if (selectedObject == null)
+        if (hoveredObject == null)
             return;
         //Grab all renderers components in a unit
-        Renderer[] rs = selectedObject.GetComponentsInChildren<Renderer>();
-        foreach (Renderer ren in rs)
+        Renderer[] rs = hoveredObject.GetComponentsInChildren<Renderer>();
+        foreach (Renderer renderedObject in rs)
         {
-            Material m = ren.material;
+            Material m = renderedObject.material;
             m.color = Color.white;
-            ren.material = m;
+            renderedObject.material = m;
         }
-        selectedObject = null;
-    }*/
+        hoveredObject = null;
+    }
 }

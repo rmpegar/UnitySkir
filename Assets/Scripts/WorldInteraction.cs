@@ -3,7 +3,7 @@ using UnityEngine.AI;
 using System.Collections;
 
 public class WorldInteraction : MonoBehaviour {
-	NavMeshAgent playerAgent;
+	NavMeshAgent playerAgent= null;
 
 	void Start(){
 		playerAgent = GetComponent<NavMeshAgent>();
